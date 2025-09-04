@@ -37,6 +37,9 @@
       gap: 0.5rem;
       cursor: pointer;
     }
+    label:has(input:disabled) {
+	color: hsl(0 0% 60%);
+    }
     input[type="checkbox"] {
       transform: scale(1.2);
     }
@@ -50,7 +53,10 @@
     <fieldset>
       <legend>Натощак</legend>
       <label><input type="checkbox" name="morning1">TUDCA/Урсосан, 1 кап</label>
-      <label><input type="checkbox" name="morning2">Нормофлорин Л/Б (14 дней, 7 дней перерыв, 14 дней), 15-20 мл</label>
+      <label>
+	<input type="checkbox" name="morning2">
+	<span>Нормофлорин <b>Л</b>/Б (14 дней, 7 дней перерыв, 14 дней), 15-20 мл</span>
+      </label>
     </fieldset>
     <fieldset>
       <legend>За час до еды</legend>
@@ -59,13 +65,13 @@
     <fieldset>
       <legend>За 30 мин до еды</legend>
       <label><input type="checkbox" name="morning4">Артишок, 1 кап</label>
-      <label><input type="checkbox" name="morning5">Левзея, 20 капель (с 3 недели)</label>
+      <label><input type="checkbox" name="morning5" disabled>Левзея, 20 капель (с 3 недели)</label>
     </fieldset>
     <fieldset>
       <legend>С едой</legend>
       <label><input type="checkbox" name="morning6">Витамин C, 1 кап</label>
       <label><input type="checkbox" name="morning7">Витамин D3, 1 кап</label>
-      <label><input type="checkbox" name="morning8">Родиола, 1 кап (с 3 недели)</label>
+      <label><input type="checkbox" name="morning8" disabled>Родиола, 1 кап (с 3 недели)</label>
     </fieldset>
     <fieldset>
       <legend>Через час после еды</legend>
@@ -81,13 +87,13 @@
       <legend>За 30 мин до еды</legend>
       <label><input type="checkbox" name="noon2">Артишок, 1 кап</label>
       <label><input type="checkbox" name="noon3">Таурин, 1 кап</label>
-      <label><input type="checkbox" name="noon4">Левзея, 20 капель (с 3 недели)</label>
+      <label><input type="checkbox" name="noon4" disabled>Левзея, 20 капель (с 3 недели)</label>
     </fieldset>
     <fieldset>
       <legend>С едой</legend>
       <label><input type="checkbox" name="noon5">Магний, 2 таб</label>
       <label><input type="checkbox" name="noon6">Витамин C, 1 кап</label>
-      <label><input type="checkbox" name="noon7">Родиола, 1 кап (с 3 недели)</label>
+      <label><input type="checkbox" name="noon7" disabled>Родиола, 1 кап (с 3 недели)</label>
     </fieldset>
     <fieldset>
       <legend>Через час после еды</legend>
@@ -95,7 +101,7 @@
     </fieldset>
     <fieldset>
       <legend>Между обедом и ужином</legend>
-      <label><input type="checkbox" name="noon9">Вобэнзим, 1-2 таб на пустой желудок в течение дня (со 2 недели)</label>
+      <label><input type="checkbox" name="noon9" disabled>Вобэнзим, 1-2 таб на пустой желудок в течение дня (со 2 недели)</label>
       <label><input type="checkbox" name="noon10">Хитозан, 2 кап</label>
     </fieldset>
 
@@ -121,7 +127,10 @@
     </fieldset>
     <fieldset>
       <legend>На ночь</legend>
-        <label><input type="checkbox" name="evening8">Нормофлорин Л/Б (14 дней, 7 дней перерыв, 14 дней), 15-20 мл</label>
+      <label>
+	<input type="checkbox" name="evening8">
+	<span>Нормофлорин <b>Л</b>/Б (14 дней, 7 дней перерыв, 14 дней), 15-20 мл</span>
+      </label>
         <label><input type="checkbox" name="evening9">Хитозан, 2 кап</label>
     </fieldset>
   </form>
