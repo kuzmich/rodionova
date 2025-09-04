@@ -45,7 +45,7 @@
 <body>
   <h1>Расписание приёма препаратов</h1>
 
-  <form>
+  <form id="med-form">
     <h2>Утро</h2>
     <fieldset>
       <legend>Натощак</legend>
@@ -75,55 +75,91 @@
     <h2>Обед</h2>
     <fieldset>
       <legend>За час до еды</legend>
-      <label><input type="checkbox" name="noon5">NAC, 1 кап</label>
+      <label><input type="checkbox" name="noon1">NAC, 1 кап</label>
     </fieldset>
     <fieldset>
       <legend>За 30 мин до еды</legend>
-      <label><input type="checkbox" name="noon4">Артишок, 1 кап</label>
-      <label><input type="checkbox" name="noon1">Таурин, 1 кап</label>
-      <label><input type="checkbox" name="noon8">Левзея, 20 капель (с 3 недели)</label>
+      <label><input type="checkbox" name="noon2">Артишок, 1 кап</label>
+      <label><input type="checkbox" name="noon3">Таурин, 1 кап</label>
+      <label><input type="checkbox" name="noon4">Левзея, 20 капель (с 3 недели)</label>
     </fieldset>
     <fieldset>
       <legend>С едой</legend>
-      <label><input type="checkbox" name="noon2">Магний, 2 таб</label>
-      <label><input type="checkbox" name="noon3">Витамин C, 1 кап</label>
-      <label><input type="checkbox" name="noon8">Родиола, 1 кап (с 3 недели)</label>
+      <label><input type="checkbox" name="noon5">Магний, 2 таб</label>
+      <label><input type="checkbox" name="noon6">Витамин C, 1 кап</label>
+      <label><input type="checkbox" name="noon7">Родиола, 1 кап (с 3 недели)</label>
     </fieldset>
     <fieldset>
       <legend>Через час после еды</legend>
-      <label><input type="checkbox" name="noon9">Мультивитамины Two-Per-Day, 1 таб</label>
+      <label><input type="checkbox" name="noon8">Мультивитамины Two-Per-Day, 1 таб</label>
     </fieldset>
     <fieldset>
       <legend>Между обедом и ужином</legend>
-      <label><input type="checkbox" name="noon6">Вобэнзим, 1-2 таб на пустой желудок в течение дня (со 2 недели)</label>
-      <label><input type="checkbox" name="noon7">Хитозан, 2 кап</label>
+      <label><input type="checkbox" name="noon9">Вобэнзим, 1-2 таб на пустой желудок в течение дня (со 2 недели)</label>
+      <label><input type="checkbox" name="noon10">Хитозан, 2 кап</label>
     </fieldset>
 
     <h2>Вечер</h2>
     <fieldset>
       <legend>За час до еды</legend>
-      <label><input type="checkbox" name="evening6">NAC, 1 кап до ужина</label>
-      <label><input type="checkbox" name="evening4">TUDCA/Урсосан, 1 кап</label>
+      <label><input type="checkbox" name="evening1">NAC, 1 кап до ужина</label>
+      <label><input type="checkbox" name="evening2">TUDCA/Урсосан, 1 кап</label>
     </fieldset>
     <fieldset>
       <legend>За 30 мин до еды</legend>
-      <label><input type="checkbox" name="evening5">Артишок, 1 кап</label>
-      <label><input type="checkbox" name="evening3">Таурин, 1 кап</label>
+      <label><input type="checkbox" name="evening3">Артишок, 1 кап</label>
+      <label><input type="checkbox" name="evening4">Таурин, 1 кап</label>
     </fieldset>
     <fieldset>
       <legend>С едой</legend>
-        <label><input type="checkbox" name="evening1">Магний, 2 таб</label>
-        <label><input type="checkbox" name="evening2">Витамин C, 1 кап</label>
+        <label><input type="checkbox" name="evening5">Магний, 2 таб</label>
+        <label><input type="checkbox" name="evening6">Витамин C, 1 кап</label>
     </fieldset>
     <fieldset>
       <legend>Через час после еды</legend>
-      <label><input type="checkbox" name="evening9">Трифала, 1-2 таб</label>
+      <label><input type="checkbox" name="evening7">Трифала, 1-2 таб</label>
     </fieldset>
     <fieldset>
       <legend>На ночь</legend>
-        <label><input type="checkbox" name="evening7">Нормофлорин Л/Б (14 дней, 7 дней перерыв, 14 дней), 15-20 мл</label>
-        <label><input type="checkbox" name="evening8">Хитозан, 2 кап</label>
+        <label><input type="checkbox" name="evening8">Нормофлорин Л/Б (14 дней, 7 дней перерыв, 14 дней), 15-20 мл</label>
+        <label><input type="checkbox" name="evening9">Хитозан, 2 кап</label>
     </fieldset>
   </form>
+  <script>
+    const form = document.getElementById('med-form');
+    const storageKey = 'medicationSchedule';
+
+    // Получить YYYY-MM-DD
+    function getToday() {
+      return new Date().toISOString().split('T')[0];
+    }
+
+    // Восстановление состояния чекбоксов
+    window.addEventListener('DOMContentLoaded', () => {
+	const saved = JSON.parse(localStorage.getItem(storageKey) || '{}');
+	if (saved.date === getToday()) {
+            for (const [name, checked] of Object.entries(saved.state || {})) {
+		const checkbox = form.elements[name];
+		if (checkbox) checkbox.checked = checked;
+	    }
+	} else {
+	    localStorage.removeItem(storageKey);
+	}
+    });
+
+    // Сохранение при изменении
+    form.addEventListener('change', () => {
+      const state = {};
+      for (const el of form.elements) {
+        if (el.type === 'checkbox') {
+          state[el.name] = el.checked;
+        }
+      }
+      localStorage.setItem(storageKey, JSON.stringify({
+        date: getToday(),
+        state,
+      }));
+    });
+  </script>
 </body>
 </html>
