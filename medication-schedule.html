@@ -160,6 +160,24 @@
         state,
       }));
     });
+
+    // Функция для сброса формы
+    function resetForm() {
+      // Очистим все чекбоксы
+      for (const el of form.elements) {
+        if (el.type === 'checkbox') {
+          el.checked = false;
+        }
+      }
+      localStorage.removeItem(storageKey); // Очистим localStorage
+    }
+
+    // Проверка на новый день каждые 60 секунд
+    setInterval(() => {
+      if (getToday() !== JSON.parse(localStorage.getItem(storageKey) || '{}').date) {
+        resetForm();
+      }
+    }, 60000); // 60000 мс = 1 минута
   </script>
 </body>
 </html>
