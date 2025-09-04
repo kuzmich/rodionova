@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Расписание приёма препаратов</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 2rem;
+      line-height: 1.5;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    fieldset {
+      margin-bottom: 2rem;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    legend {
+      font-weight: bold;
+      font-size: 1.2rem;
+      padding: 0 0.5rem;
+    }
+    .checkbox-group {
+      display: grid;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+    }
+    input[type="checkbox"] {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+  <h1>Расписание приёма препаратов</h1>
+
+  <form>
+    <fieldset>
+      <legend>Утро</legend>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="morning3">TUDCA, 1 кап натощак</label>
+	<label><input type="checkbox" name="morning8">Нормофлорин Л, 15-20 мл натощак</label>
+        <label><input type="checkbox" name="morning1">Вобэнзим, 2 таб натощак за 40-60 мин до еды</label>
+        <label><input type="checkbox" name="morning4">Артишок, 1 кап за 30 мин до еды</label>
+        <label><input type="checkbox" name="morning5">Адаптоген, по инструкции, перед едой (с 3 недели)</label>
+        <label><input type="checkbox" name="morning2">Витамин C, 1 кап с едой</label>
+        <label><input type="checkbox" name="morning6">Витамин D3, 1 кап с едой</label>
+        <label><input type="checkbox" name="morning7">Мультивитамины Two-Per-Day, 1 таб через час после еды</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Обед</legend>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="noon5">NAC, 1 кап за 40-60 мин до обеда</label>
+        <label><input type="checkbox" name="noon4">Артишок, 1 кап за 30 мин до еды</label>
+        <label><input type="checkbox" name="noon1">Таурин, 1 кап за 20-30 мин до еды</label>
+	<label><input type="checkbox" name="noon8">Адаптоген, по инструкции, перед едой (с 3 недели)</label>
+        <label><input type="checkbox" name="noon2">Магний, 2 таб</label>
+        <label><input type="checkbox" name="noon3">Витамин C, 1 кап с едой</label>
+	<label><input type="checkbox" name="noon9">Мультивитамины Two-Per-Day, 1 таб через час после еды</label>
+        <label><input type="checkbox" name="noon6">Вобэнзим, 1-2 таб на пустой желудок в течение дня (со 2 недели)</label>
+	<label><input type="checkbox" name="noon7">Хитозан, 2 кап между обедом и ужином</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Вечер</legend>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="evening6">NAC, 1 кап до ужина</label>
+        <label><input type="checkbox" name="evening4">TUDCA, 1 кап за час до ужина</label>
+        <label><input type="checkbox" name="evening5">Артишок, 1 кап за 30 мин до еды</label>
+        <label><input type="checkbox" name="evening3">Таурин, 1 кап за 20-30 мин до еды</label>
+        <label><input type="checkbox" name="evening1">Магний, 2 таб</label>
+        <label><input type="checkbox" name="evening2">Витамин C, 1 кап с едой</label>
+        <label><input type="checkbox" name="evening9">Трифала, 1-2 таб через час после ужина</label>
+        <label><input type="checkbox" name="evening7">Нормофлорин Л, 15-20 мл на ночь</label>
+        <label><input type="checkbox" name="evening8">Хитозан, 2 кап на ночь</label>
+      </div>
+    </fieldset>
+  </form>
+</body>
+</html>
