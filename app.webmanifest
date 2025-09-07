@@ -1,7 +1,7 @@
 {
     "name": "Детокс | Родионова",
     "short_name": "Детокс-Настя",
-    "start_url": "/medication-schedule.html",
+    "start_url": "medication-schedule.html",
     "display": "standalone",
     "id": "rodionova_detox",
     "icons": [
